@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<style>
+        img {
+            max-width: 200px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+<body>
+    <h2>Student Registration</h2>
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <label>Name: <input type="text" name="name" required><br><br></label><br>
+        
+
+        <label>Register Number: <input type="text" name="regno" required></label><br>
+        <br>
+
+        <label>Department: <input type="text" name="dept" required></label><br>
+        <br><br>
+ 
+        
+
+        <label>Upload Photo: <input type="file" name="image" id="imageInput" accept="image/*" required></label><br>
+        <br><br>
+
+        <img id="preview" src="#" alt="Image Preview" style="display: none;"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // JavaScript to preview image before uploading
+        const imageInput = document.getElementById('imageInput');
+        const preview = document.getElementById('preview');
+
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.setAttribute('src', e.target.result);
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <p>{{ message }}</p>
+</body>
+</html>

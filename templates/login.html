@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>our project</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+
+.login-section {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #4B0082;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #6a0dad;
+}
+.logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+
+  </style>
+
+</head>
+<body>
+
+  
+<header class="site-header">
+  <div class="header-content">
+   
+    <h1>Fatima College</h1>
+    
+   <img src="logo.png" class="logo"> <h2>Department of Computer Science</h2>
+   
+    <h3>Biometric Attendance System</h3>
+  </div>
+  </header>
+  <main class="login-section">
+  <h2 class="login-title">Login</h2>
+  <form class="login-form" onsubmit="return validateLogin(event)">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required placeholder=" user name"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required  placeholder="Password"/>
+    </div>
+
+   <button type="submit">Login</button>
+  </form>
+</main>
+<script>
+  function validateLogin(event) {
+    event.preventDefault(); 
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+   
+    const validUsername = "Teacher";
+    const validPassword = "1234";
+
+    if (username === validUsername && password === validPassword) {
+      alert("Login successful!");
+      window.location.href = "index.html"; 
+    } else {
+      alert("Invalid username or password.");
+    }
+  }
+</script>
+  </body>
+  </html>

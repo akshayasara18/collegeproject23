@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Responses</title>
+</head>
+<body>
+  <h2>Google Form Responses</h2>
+  {% if headers %}
+  <table border="1" cellpadding="5">
+    <tr>
+      {% for h in headers %}
+      <th>{{ h }}</th>
+      {% endfor %}
+    </tr>
+    {% for row in rows %}
+    <tr>
+      {% for col in row %}
+      <td>{{ col }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>No responses yet.</p>
+  {% endif %}
+</body>
+</html>

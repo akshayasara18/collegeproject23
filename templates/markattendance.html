@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Mark Attendance</h2>
+    <form method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th>Register No</th>
+                    <th>Name</th>
+                    <th>Absent</th>
+                    <th>Present</th>
+                    <th>Late</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>
+                        <input type="hidden" name="reg_no" value="{{ student[0] }}">
+                        {{ student[0] }}
+                    </td>
+                    <td>
+                        <input type="hidden" name="name_{{ student[0] }}" value="{{ student[1] }}">
+                        {{ student[1] }}
+                    </td>
+                    <td><input type="radio" name="status_{{ student[0] }}" value="Absent"></td>
+                    <td><input type="radio" name="status_{{ student[0] }}" value="Present"></td>
+                    <td><input type="radio" name="status_{{ student[0] }}" value="Late"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style="text-align:center; margin-top:20px;">
+            <button type="submit">Submit Attendance</button>
+        </div>
+    </form>
+</body>
+</html>

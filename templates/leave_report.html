@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Leave Reports (Live)</title>
+  
+  <style>
+  
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+
+
+
+.card-icon {
+  width: 15rem;
+  height: 10rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+a{
+  text-decoration: none;
+}
+.logout-icon {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  width: 8rem;
+  height: 6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+    .logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+ .table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+}
+.table-responsive table {
+  width: 100%;
+  min-width: 600px; /* ensures table doesn't shrink too much */
+  border-collapse: collapse;
+}
+  
+    .wrap{max-width:1200px; margin:0 auto;}
+  
+   
+    table{width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 6px rgba(0,0,0,0.05);}
+  
+    th, td{padding:10px; border:1px solid #e6e9ee; text-align:left;}
+  
+    th{background:linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);; color:white;}
+  
+    .empty{padding:40px; text-align:center; color:#d9534f; font-weight:bold;}
+  /* ✅ Mobile Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Header adjustments */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    width: 70px;
+    height: 70px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2, h3 {
+    font-size: 16px;
+  }
+
+  /* Menu button */
+  .menu-toggle {
+    left: 15px;
+    top: 15px;
+    font-size: 26px;
+  }
+
+  /* Sidebar */
+  .side-nav {
+    width: 220px;
+  }
+
+  .nav-links a {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  /* Page spacing */
+  .wrap {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  /* Title */
+  h1[style] {
+    font-size: 20px !important;
+  }
+
+  /* Empty state */
+  .empty {
+    font-size: 14px;
+    padding: 20px;
+  }
+ 
+  .table-responsive table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 6px;
+  }
+}
+ 
+
+
+  </style>
+  
+</head>
+  
+<body>
+  <header class="site-header">
+  <div class="header-content">
+ 
+    <h1>Fatima College</h1><img src="static\logo.png" class="logo"> 
+    
+    <h2>Department of Computer Science</h2>
+   <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+         <li><a href="{{url_for('container')}}">Home </a></li>
+       <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+        <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+      
+    </ul>
+  </nav>
+</header>
+<br>
+<br>
+  <div class="wrap">
+  
+    <center><h1 style="color: #4B0082;">Leave Reports — Live from Google Sheet</h1></center>
+    <br>
+    <br>
+    <br>
+     
+    {% if data and data|length > 0 %}
+  <div class="table-responsive">
+      <table>
+  
+        <thead>
+  
+          <tr>
+  
+            {% for key in data[0].keys() %}
+  
+              <th>{{ key }}</th>
+  
+            {% endfor %}
+  
+          </tr>
+  
+        </thead>
+  
+        <tbody>
+  
+          {% for row in data %}
+  
+            <tr>
+  
+              {% for v in row.values() %}
+  
+                <td>{{ v }}</td>
+  
+              {% endfor %}
+  
+            </tr>
+  
+          {% endfor %}
+
+        </tbody>
+  
+      </table>
+  </div>
+  
+    {% else %}
+      <div class="empty">⚠ No responses found in the Google Sheet yet.</div> 
+    {% endif %}
+  
+  </div>
+     <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login.html"; 
+  });
+  </script>
+</body>
+  
+</html>

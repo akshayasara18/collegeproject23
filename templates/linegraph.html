@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students Leave Record</title>
+    <style>
+            body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+.logout-icon {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  width: 8rem;
+  height: 6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+    .logo{
+  position: absolute;
+  top: 20px;
+  left: 505px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+
+
+        .container { width: 90%; margin: auto; display: flex; }
+        .graph { flex: 2; text-align: center; }
+        .details { flex: 1; margin-left: 20px; background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .details h3 { color:#2b6db3; }
+        .student { margin-bottom: 15px; }
+        .highlight { color: red; font-weight: bold; margin-top: 10px; }
+        /* ✅ Mobile Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Header layout */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 14px; }
+
+  /* Logo repositioning */
+  .logo {
+    position: static;
+    width: 70px;
+    height: 70px;
+    margin: 10px auto;
+  }
+
+  /* Menu Icon */
+  .menu-toggle {
+    left: 15px;
+    top: 15px;
+    font-size: 26px;
+  }
+
+  /* Sidebar */
+  .side-nav {
+    width: 220px;
+  }
+
+  .nav-links a {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  /* Graph & details stack vertically */
+  .container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .graph, .details {
+    width: 100%;
+    margin: 0;
+  }
+
+  .graph img {
+    width: 100%;
+    height: auto;
+  }
+
+  .details {
+    margin-top: 15px;
+  }
+
+  .highlight {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .student {
+    font-size: 14px;
+  }
+
+  h2[style] {
+    font-size: 18px !important;
+  }
+}
+
+    </style>
+</head>
+<body>
+      
+<header class="site-header">
+  <div class="header-content">
+ 
+    <h1>Fatima College</h1><img src="static\logo.png" class="logo"> 
+    
+    <h2>Department of Computer Science</h2>
+   <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+         <li><a href="{{url_for('container')}}">Home </a></li>
+      <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+        <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+      
+    </ul>
+  </nav>
+    <h2 style="text-align:center;color: #4B0082;">Students Leave Record</h2>
+    <div class="container">
+        <div class="graph">
+            <img src="data:image/png;base64,{{ graph_url }}" alt="Line Graph"/>
+           <div class="highlight">
+    Highest Leave: {{ highest_name }} (RegNo: {{ highest_regno }}) - {{ highest_value }} days
+</div>
+
+        </div>
+        <div class="details">
+            <h3>Absentee Details</h3>
+            {% for row in rows %}
+                <div class="student">
+                    <b>{{ row.name1 }}</b><br>
+                    Register No: {{ row.regno1 }}<br>
+                    Absent Days: {{ row.absent_days }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+       <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login1 .html"; 
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>our project</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+
+main.login-section {
+      background: #fff;
+      color: #333;
+      width: 350px;
+      margin: 3rem auto 4rem;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(138, 43, 226, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    main.login-section:hover {
+      box-shadow: 0 16px 35px rgba(138, 43, 226, 0.6);
+    }
+
+    .login-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: #6a0dad;
+      letter-spacing: 1px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #4B0082;
+    }
+
+    .form-group input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #c77dff;
+  border-radius: 8px;
+  outline: none; /* ✅ remove default focus outline */
+  box-sizing: border-box;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group input:hover {
+  border-color: #8A2BE2;
+  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.3); 
+}
+
+    .form-group select {
+  font-size:12px;
+  padding: 12px 14px;
+  border: 2px solid #c77dff;
+  border-radius: 8px;
+  appearance: none;
+  width: 230px;
+  height: 50px;
+  line-height: 1.5; 
+  background-color: white;
+  color: #333;
+  box-sizing: border-box;
+}
+
+
+   
+     .form-group select:focus,
+.form-group select:hover {
+  border-color: #8A2BE2; 
+  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.3); 
+}
+
+    button[type="submit"] {
+      background: linear-gradient(90deg, #4B0082, #8A2BE2);
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.9rem 0;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(138, 43, 226, 0.5);
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #8A2BE2, #4B0082);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(138, 43, 226, 0.7);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 15px rgba(138, 43, 226, 0.5);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .site-header {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+      }
+      .login-section {
+        width: 90%;
+        margin: 2rem auto;
+      }
+    }
+.logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+#username{
+  height: 40px;
+}
+
+/* ✅ Mobile Responsive Fix */
+@media (max-width: 600px) {
+  /* Header section */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  .header-content h2 {
+    font-size: 16px;
+  }
+
+  /* Login box */
+  main.login-section {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .form-group select,
+  .form-group input {
+    width: 100%;
+    font-size: 12px;
+    
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+}
+
+
+
+  </style>
+
+</head>
+<body>
+
+  
+<header class="site-header">
+  <div class="header-content">
+   
+    <h1>Fatima College</h1>
+    
+   <img src="static/logo.png" class="logo"> <h2>Department of Computer Science</h2>
+  <br>
+   <h3>Student Attendance System</h3>
+  </div>
+  </header>
+  <main class="login-section">
+  <h2 class="login-title">Login</h2>
+  <form class="login-form" method="post"  onsubmit="return validateLogin(event)">
+    <div class="form-group">
+  <label for="username">USER NAME:</label>
+  <select id="username" name="username"  required placeholder="user name" >
+    <option style="font-size: 10px;">username</option>
+    <option value="Admin">Admin</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Parent">Parent</option>
+     <option value="Student">Student</option>
+   
+    
+  </select>
+</div>
+<BR>
+ 
+
+
+    <div class="form-group">
+      <label for="password">PASSWORD:</label>
+      <input type="password" id="password" name="password" required placeholder="password">
+    </div>
+
+   <button type="submit">Login</button>
+  </form>
+</main>
+<script>
+  function validateLogin(event) {
+    event.preventDefault(); 
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const user = {
+      Admin:"1953",
+      Teacher: "1234",
+      Parent:"fatima",
+      Student:"2023"
+    };
+
+    if (user[username] && user[username] === password) {
+      if (username === "Teacher") {
+        alert("Login successful!");
+        window.location.href = "/container"; 
+      } 
+      if (username === "Parent") {
+        alert("Login successful!");
+        window.location.href = "/parent"; 
+      } 
+      if (username === "Admin") {
+        alert("Login successful!");
+        window.location.href = "/container1"; 
+      } 
+      if (username === "Student") {
+        alert("Login successful!");
+        window.location.href = "/parent1"; 
+      } 
+    } else {
+      alert("Invalid username or password.");
+    }
+  }
+</script>
+
+
+  </body>
+  </html>

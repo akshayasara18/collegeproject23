@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Attendance</title>
+  <style>
+      body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+ 
+
+    .main-content {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -250px;            /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding-top: 20px;
+  z-index: 9999;
+  color: white;
+}
+
+.side-nav.open {
+  left: 0;                 /* slide in when open */
+}
+
+.side-nav .close-menu {
+  font-size: 24px;
+  text-align: right;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+   
+    .logo { 
+     position: absolute;
+     top: 20px;
+      width: auto; 
+      left: 500px;
+      height: 90px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+    }
+
+    .content {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border: 2px solid #8A2BE2;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .card h2 { color: #4B0082; text-align: center; margin-bottom: 20px; }
+
+    .filter-box {
+      margin-bottom: 15px;
+      background: #f0e6ff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .filter-box label { margin-right: 10px; font-weight: bold; }
+    .filter-box input { margin-right: 15px; padding: 5px; }
+    .filter-btn {
+      background: green; padding: 6px 12px;
+      border: none; border-radius: 5px;
+      color: white; cursor: pointer;
+    }
+    .filter-btn:hover { opacity: 0.9; }
+
+    table {
+      width: 100%; border-collapse: collapse; margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ddd; padding: 10px; text-align: center;
+    }
+    th { background-color: #4B0082; color: white; }
+    .btn {
+      background: #6a0dad; color: white;
+      padding: 5px 8px; border-radius: 5px;
+      text-decoration: none; cursor: pointer; border: none;
+    }
+    .btn:hover { opacity: 0.8; }
+    .edit-form { display: none; background: #f9f9ff; }
+    .no-records { margin-top: 15px; font-weight: bold; color: red; text-align: center; }
+
+
+/* Tablets: max-width 768px */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .header-content h1 {
+    font-size: 24px;
+  }
+  .header-content h2 {
+    font-size: 18px;
+  }
+  .header-content h3 {
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    top: 10px;
+    left: 10px;
+    font-size: 28px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .filter-box input, .filter-box label {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  table th, table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Mobile phones: max-width 480px */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-content h1 {
+    font-size: 20px;
+  }
+  .header-content h2 {
+    font-size: 16px;
+  }
+  .header-content h3 {
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    font-size: 26px;
+  }
+
+  .content {
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 0.5rem;
+  }
+
+  .filter-box input, .filter-box label {
+    font-size: 14px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .btn, .filter-btn {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <h1>Fatima College</h1>
+    <img src="static/logo.png" class="logo">
+    <h2>Department of Computer Science</h2>
+    <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</header>
+
+<nav class="side-nav" id="side-nav">
+  <div class="close-menu" id="close-menu">✖</div>
+  <ul class="nav-links">
+       <li><a href="{{url_for('container1')}}">Home </a></li>
+    <li><a href="{{url_for('stu_det')}}">Student Details</a></li>
+    <li><a href="{{url_for('teacher_reg')}}">Teacher Registration</a></li>
+    <li><a href="{{url_for('teacher_det')}}">Teacher Details</a></li>
+    <li><a href="{{url_for('manage_attendance')}}">Manage Attendance</a></li>
+    <li><a href="{{url_for('login1')}}">Logout</a></li>
+  </ul>
+</nav>
+
+<section class="content">
+  <div class="card">
+    <h2>Manage Attendance</h2>
+
+    <!-- Filter Form -->
+    <form method="POST" action="/manage_attendance" class="filter-box">
+      <input type="hidden" name="filter" value="1">
+      <label>From:</label>
+      <input type="date" name="start_date" required>
+      <label>To:</label>
+      <input type="date" name="end_date" required>
+      <button type="submit" class="filter-btn">Filter</button>
+    </form>
+   
+   
+   {% if start_date and end_date %}
+    <p style="text-align:center; margin-top:10px;">
+      Showing records from <strong>{{ start_date }}</strong> to <strong>{{ end_date }}</strong>
+    </p>
+   {% endif %}   
+
+   {% if message %}
+    <p style="color: green; font-weight: bold; text-align:center;">
+        {{ message }}
+    </p>
+   {% endif %}
+
+
+    {% if records %}
+    <table>
+      <tr>
+        <th>Reg No</th>
+        <th>Student Name</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Late Time</th>
+        <th>Teacher</th>
+        <th>Marked At</th>
+        <th>Action</th>
+      </tr>
+      {% for rec in records %}
+      <tr>
+        <td>{{ rec.regno1 }}</td>
+        <td>{{ rec.name1 }}</td>
+        <td>{{ rec.date }}</td>
+        <td>{{ rec.status }}</td>
+        <td>{{ rec.late_time if rec.late_time else "-" }}</td>
+        <td>{{ rec.TeacherName }}</td>
+        <td>{{ rec.marked_at }}</td>
+        <td><button class="btn" onclick="toggleEdit('{{ rec.sno }}')">Edit</button></td>
+      </tr>
+      <tr id="edit-{{ rec.sno }}" class="edit-form">
+        <td colspan="7">
+          <form method="POST">
+            <input type="hidden" name="edit_id" value="{{ rec.sno }}">
+            <label>Status:</label>
+            <select name="status" onchange="toggleLate(this, '{{ rec.sno }}')">
+              <option value="Present" {% if rec.status == 'Present' %}selected{% endif %}>Present</option>
+              <option value="Absent" {% if rec.status == 'Absent' %}selected{% endif %}>Absent</option>
+              <option value="Late" {% if rec.status == 'Late' %}selected{% endif %}>Late</option>
+            </select>
+            <label>Late Time:</label>
+            <input type="time" name="late_time" id="lateTime-{{ rec.sno }}" value="{{ rec.late_time if rec.late_time else '' }}" {% if rec.status != 'Late' %}disabled{% endif %}>
+            <button type="submit" class="btn">Update</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+      <p class="no-records">⚠ Please select a date range to view attendance records.</p>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const sideNav = document.getElementById('side-nav');
+  const closeMenu = document.getElementById('close-menu');
+
+  menuToggle.addEventListener('click', () => {
+    sideNav.classList.add('open');
+    menuToggle.classList.add('hidden');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    sideNav.classList.remove('open');
+    menuToggle.classList.remove('hidden');
+  });
+
+  function toggleEdit(id) {
+    let row = document.getElementById('edit-' + id);
+    row.style.display = (row.style.display === 'table-row') ? 'none' : 'table-row';
+  }
+  function toggleLate(select, id) {
+    let lateInput = document.getElementById('lateTime-' + id);
+    lateInput.disabled = (select.value !== 'Late');
+  }
+</script>
+</body>
+</html>

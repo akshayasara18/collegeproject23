@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: green;
+            color: white;
+        }
+
+        .btn-submit {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Mark Attendance</h2>
+
+        <form action="/submit_attendance" method="post">
+    <label for="date">Select Date:</label>
+    <select name="selected_date" required>
+        <option value="">-- Select a Date --</option>
+        <option value="2025-08-03">2025-08-03</option>
+        <option value="2025-08-04">2025-08-04</option>
+        <option value="2025-08-05">2025-08-05</option>
+    </select>
+
+    <table>
+        <tr>
+            <th>Register No</th>
+            <th>Name</th>
+            <th>Absent</th>
+            <th>Late</th>
+            <th>Present</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.register_no }}</td>
+            <td>{{ student.name }}</td>
+            <td><input type="radio" name="status_{{ student.register_no }}" value="Absent"></td>
+            <td><input type="radio" name="status_{{ student.register_no }}" value="Late"></td>
+            <td><input type="radio" name="status_{{ student.register_no }}" value="Present"></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit" class="btn-submit">Submit Attendance</button>
+</form>
+
+
+    </div>
+
+</body>
+</html>

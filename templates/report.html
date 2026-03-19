@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance Report</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+.card-icon {
+  width: 15rem;
+  height: 9rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+a{
+  text-decoration: none;
+}
+.logout-icon {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  width: 8rem;
+  height: 6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+    .logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+
+ h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+
+       .summary {
+      width: 80%;
+      margin: 20px auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .summary h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .summary table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .summary th, .summary td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    .summary th {
+      background: #4B0082;
+      color: white;
+    }
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    table th {
+      background: #4B0082;
+      color: white;
+    }
+    .alert {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .no-records {
+      text-align: center;
+      color: red;
+      margin-top: 20px;
+    }
+    /* ✅ Mobile Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Header */
+  .site-header {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    width: 70px;
+    height: 70px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2, h3 {
+    font-size: 16px;
+  }
+
+  /* Menu icon */
+  .menu-toggle {
+    top: 15px;
+    left: 15px;
+    font-size: 26px;
+  }
+
+  /* Side Navigation */
+  .side-nav {
+    width: 200px;
+  }
+
+  .nav-links a {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  /* Table */
+  table, .summary table {
+    width: 95%;
+    font-size: 13px;
+  }
+
+  .summary {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .summary h3 {
+    font-size: 16px;
+  }
+
+  /* Attendance title */
+  h2[style] {
+    font-size: 20px !important;
+  }
+
+  /* Buttons for months */
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+    width: 100% !important;
+  }
+
+  .months button {
+    padding: 10px 20px !important;
+    margin: 4px !important;
+    font-size: 13px !important;
+  }
+
+  .year-select select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Image */
+  img[alt="Student Photo"] {
+    width: 120px !important;
+    height: 160px !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+
+<header class="site-header">
+  <div class="header-content">
+ 
+    <div class="header-content">
+ 
+    <h1>Fatima College</h1><img src="static\logo.png" class="logo"> 
+    
+    <h2>Department of Computer Science</h2>
+   <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+         <li><a href="{{url_for('container')}}">Home </a></li>
+      <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+         <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+
+      
+    </ul>
+  </nav>
+
+
+
+  <br><br><br><br>
+  <center><h2 style="color:#4B0082; font-size:25px;">Attendance Report</h2></center>
+<br>
+{% if photo %}
+  <div style="text-align:center; margin: 15px;">
+    <img src="data:image/jpeg;base64,{{ photo }}" 
+         alt="Student Photo"
+         width="150" height="200"
+         style="border-radius: 10%; border: 3px solid #4B0082;"/>
+  </div>
+{% endif %}
+
+  {% if student %}
+    <div class="summary">
+      <b><h3 style="color:black;font-size:18px;">Student: {{ student }} ({{ regno }})</h3></b>
+      <table>
+        <tr>
+          <th>Total Days</th>
+          <th>Present</th>
+          <th>Absent</th>
+          <th>Late</th>
+          <th>Percentage</th>
+          <th>First Date</th>
+          <th>Last Date</th>
+        </tr>
+        <tr>
+          <td>{{ total_days }}</td>
+          <td>{{ present_count }}</td>
+          <td>{{ absent_count }}</td>
+          <td>{{ late_count }}</td>
+          <td>{{ percentage }}%</td>
+          <td>{{ first_date }}</td>
+          <td>{{ last_date }}</td>
+        </tr>
+      </table>
+    </div>
+
+   
+
+    <div class="filter-bar" style="width:80%; margin:20px auto; display:flex; justify-content:space-between; align-items:center;">
+
+  <!-- Month buttons -->
+  <div class="months">
+    {% for month in ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"] %}
+      <form method="POST" action="/report" style="display:inline;">
+        <input type="hidden" name="regno" value="{{ regno }}">
+        <input type="hidden" name="year" value="{{ selected_year or '' }}">
+        <input type="hidden" name="month" value="{{ loop.index }}">
+        <button type="submit" style="padding:12px 32px; margin:2px; background:#4B0082; color:white; border:none; border-radius:4px; cursor:pointer;">
+          {{ month }}
+        </button>
+      </form>
+    {% endfor %}
+  </div>
+
+  <!-- Year dropdown -->
+<div class="year-select">
+  <form method="POST" action="/report">
+    <input type="hidden" name="regno" value="{{ regno }}">
+    <select name="year" onchange="this.form.submit()" style="padding:6px; font-size:14px; border-radius:4px;">
+      {% for y in range(2023, 2027) %}
+       <option value="{{ y }}"
+  {% if selected_year == y or (not selected_year and y == 2025) %}selected{% endif %}>
+  {{ y }}
+</option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+
+</div>
+<!--  Show table + summary  after clicking a month -->
+{% if records and selected_month %}
+  <table border="1" style="width:80%; margin:20px auto; text-align:center;">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in records %}
+      <tr>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Monthly Summary -->
+  <div style="width:80%; margin:20px auto; text-align:center; font-size:18px; color:#4B0082;">
+    <p><b>Monthly Summary ({{ selected_month }}/{{ selected_year }})</b></p>
+    <p>✅ Present Days: <b>{{ present_count }}</b></p>
+    <p>❌ Absent Days: <b>{{ absent_count }}</b></p>
+  </div>
+{% endif %}
+
+
+  {% else %}
+    <p class="no-records">No attendance records found for Register Number {{ regno }}.</p>
+  {% endif %}
+
+
+ <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login1.html"; 
+  });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Dashboard - Biometric Attendance System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+  
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+    .form-section {
+      margin-top: 80px;
+      text-align: center;
+    }
+    .form-section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4B0082;
+      letter-spacing: 1px;
+    }
+    .form-section input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #4B0082;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+    .form-section button:hover {
+      background-color: #3a006d;
+      box-shadow: 0 0 15px #a66eff;
+      transform: scale(1.03);
+    }
+    
+  .logo{
+  position: absolute;
+  top: 25px;
+  left: 510px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+
+ h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 18px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 15px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    /* ✅ Mobile Responsive Styles */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Header layout fixes */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; }
+  h3 { font-size: 14px; }
+
+  /* Adjust logo */
+  .logo {
+    position: static;
+    margin: 10px auto;
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Menu icon */
+  .menu-toggle {
+    left: 15px;
+    top: 20px;
+    font-size: 26px;
+  }
+
+  /* Sidebar */
+  .side-nav {
+    width: 220px;
+  }
+
+  .nav-links a {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  /* Form area */
+  .form-section {
+    margin-top: 40px;
+    padding: 0 15px;
+  }
+
+  .form-section h2 {
+    font-size: 18px;
+  }
+
+  .form-section input[type="text"] {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .form-section button {
+    width: 90%;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+     <h1>Fatima College</h1>
+    
+   <img src="static/logo.png" class="logo"> <h2>Department of Computer Science</h2>
+   <br>
+   <h3>Student Attendance System</h3>
+  </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+       <li><a href="{{url_for('parent1')}}">Student report</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-section">
+    <h2> STUDENT REPORT <br><br>🔍 Enter Register Number view your report </h2>
+    <form method="POST" action="/student1">
+      <input type="text" name="regno" placeholder="Enter your register Number" required>
+      <button type="submit">View Student Report</button>
+    </form>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+  
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+    });
+  </script>
+</body>
+</html>

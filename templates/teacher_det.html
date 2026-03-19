@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Details</title>
+  <style>
+      body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+ 
+
+    .main-content {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: -250px;            /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding-top: 20px;
+  z-index: 9999;
+  color: white;
+}
+
+.side-nav.open {
+  left: 0;                 /* slide in when open */
+}
+
+.side-nav .close-menu {
+  font-size: 24px;
+  text-align: right;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+   
+    .logo { 
+     position: absolute;
+     top: 20px;
+      width: auto; 
+      left: 500px;
+      height: 90px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+    }
+
+    .main-content {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+ .side-nav {
+  position: fixed;
+  top: 0;
+  left: -250px;            /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  padding-top: 20px;
+  z-index: 9999;
+  color: white;
+}
+
+.side-nav.open {
+  left: 0;                 /* slide in when open */
+}
+
+.side-nav .close-menu {
+  font-size: 24px;
+  text-align: right;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+.menu-toggle.hidden { display: none; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    table th {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2);
+      color: #fff;
+    }
+
+    tr:nth-child(even) { background: #f9f9f9; }
+    tr:hover { background: #e6f2ff; }
+ .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth horizontal scroll on mobile */
+  border-radius: 10px;
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 700px; /* Ensures table scrolls if too wide */
+  border-collapse: collapse;
+}
+
+/* --- Media Queries --- */
+
+/* Tablets: max-width 768px */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 24px;
+  }
+  .header-text h2 {
+    font-size: 18px;
+  }
+  .header-text h3 {
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    top: 10px;
+    left: 10px;
+    font-size: 28px;
+  }
+
+  .main-content {
+    max-width: 95%;
+    padding: 1rem;
+    margin: 10px auto;
+  }
+
+  table th, table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Mobile phones: max-width 480px */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-text h1 {
+    font-size: 20px;
+  }
+  .header-text h2 {
+    font-size: 16px;
+  }
+  .header-text h3 {
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    font-size: 26px;
+  }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 5px auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .table-responsive {
+  margin-bottom: 10px;
+}
+
+.table-responsive table {
+  font-size: 12px;
+  min-width: 600px;
+}
+
+.table-responsive th, 
+.table-responsive td {
+  padding: 6px;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+}
+</style>
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-text">
+    <h1>Fatima College</h1>
+      <img src="static/logo.png" class="logo" alt="College Logo">
+
+    <h2>Department of Computer Science</h2>
+    <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle" style="cursor:pointer;">☰</div>
+</header>
+<nav class="side-nav" id="side-nav">
+  <div class="close-menu" id="close-menu">✖</div>
+  <ul class="nav-links">
+       <li><a href="{{url_for('container1')}}">Home </a></li>
+    <li><a href="{{url_for('stu_det')}}">Student Details</a></li>
+    <li><a href="{{url_for('teacher_reg')}}">Teacher Registration</a></li>
+    <li><a href="{{url_for('teacher_det')}}">Teacher Details</a></li>
+    <li><a href="{{url_for('manage_attendance')}}">Manage Attendance</a></li>
+    <li><a href="{{url_for('login1')}}">Logout</a></li>
+  </ul>
+</nav>
+
+<main class="main-content">
+  <h2 class="form-title">Teacher Details</h2>
+<div class="table-responsive">
+  <table>
+    <tr>
+      <th>Teacher ID</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Designation</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+
+    {% for teacher in teachers %}
+    <tr>
+      <td>{{ teacher[0] }}</td> <!-- Teacher ID -->
+      <td>{{ teacher[1] }}</td> <!-- Name -->
+      <td>{{ teacher[2] }}</td> <!-- Gender -->
+      <td>{{ teacher[3] }}</td> <!-- Department -->
+      <td>{{ teacher[4] }}</td> <!-- Designation -->
+      <td>{{ teacher[5] }}</td> <!-- Email -->
+      <td>{{ teacher[6] }}</td> <!-- Phone -->
+      <td>{{ teacher[7] }}</td> <!-- Address -->
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+</main>
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const sideNav = document.getElementById('side-nav');
+  const closeMenu = document.getElementById('close-menu');
+
+  menuToggle.addEventListener('click', () => {
+    sideNav.classList.add('open');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    sideNav.classList.remove('open');
+  });
+</script>
+</body>
+</html>

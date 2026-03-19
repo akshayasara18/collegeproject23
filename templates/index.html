@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biometric Attendance System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+.site-header {
+  background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+  color: #fff;
+  padding: 0.5rem 1rem; /* ✅ height குறைச்சது */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+header {
+  padding: 10px !important; /* ✅ குறைவான height */
+  text-align: center;
+}
+
+
+
+
+.menu-toggle {
+  top: 20px;  /* ✅ மேலே fixed */
+}
+.logout-icon {
+  top: 20px; /* ✅ same here */
+}
+
+
+  body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    
+
+
+
+
+   h1 {
+    
+      margin: 0 0 0;
+      font-size: 22px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 20px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+.card-icon {
+  width: 15rem;
+  height: 9rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+a{
+  text-decoration: none;
+}
+.logout-icon {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  width: 8rem;
+  height: 6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+    .logo{
+  position: absolute;
+  top:20px;
+  left: 490px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%; 
+  
+}
+
+   
+    .form-section {
+      margin-top: 80px;
+      text-align: center;
+    }
+    .form-section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4B0082;
+      letter-spacing: 1px;
+    }
+    .form-section input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #4B0082;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+    .form-section button:hover {
+      background-color: #3a006d;
+      box-shadow: 0 0 15px #a66eff;
+      transform: scale(1.03);
+    }
+    .header-content{
+      top: 10px;
+    }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; background:white; }
+    th, td { border:1px solid #aaa; padding:8px; text-align:center; }
+    th { background-color:#4B0082; color:white; }
+    form { text-align:center; margin-top:20px; }
+    select, input[type=date], button { padding:8px 12px; margin:5px; }
+    button { background:#4B0082; color:white; border:none; cursor:pointer; }
+    button:hover { background:#3a006d; }
+/* ✅ Mobile Responsive Fix */
+@media (max-width: 600px) {
+  /* Header section */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  .header-content h2 {
+    font-size: 16px;
+  }
+}
+  </style>
+</head>
+<body>
+ <header class="site-header">
+  <div class="header-text">
+    <h1>Fatima College</h1>
+      <img src="static/logo.png" class="logo" alt="College Logo">
+
+    <h2>Department of Computer Science</h2>
+    <br>
+    <h3>Student Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle" style="cursor:pointer;">☰</div>
+</header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+         <li><a href="{{url_for('container')}}">Home </a></li>
+     <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+         <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+      
+    </ul>
+  </nav>
+
+
+
+
+  <div class="form-section">
+    <h2> STUDENTS REPORT <br><br>🔍Enter Register Number To View Your Report </h2>
+    <form method="POST" action="/report">
+      <input type="text" name="regno" placeholder="Enter Register Number" required>
+      <button type="submit">View Report</button>
+    </form>
+  </div>
+ <center>
+   <!-- Month-wise report -->
+<h2 style="color: #4B0082;">Month-wise Attendance</h2>
+<form method="POST">
+    <select name="month">
+        <option value="">Select Month</option>
+        {% for i in range(1,13) %}
+          <option value="{{i}}" {% if selected_month==i %}selected{% endif %}>{{["January","February","March","April","May","June","July","August","September","October","November","December"][i-1]}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">View Month Report</button>
+</form>
+
+{% if month_table %}
+<table>
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>RegNo</th>
+            <th>Working Days</th>
+            <th>Absent Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in month_table %}
+        <tr>
+            
+            <td>{{row.name}}</td>
+            <td>{{row.regno}}</td>
+            <td>{{row.TotalWorking}}</td>
+            <td>{{row.AbsentCount}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+<!-- Date-wise report -->
+<h2 style="color:#4B0082">Date-wise Absentees</h2>
+<form method="POST">
+    <input type="date" name="date" value="{{selected_date}}">
+    <button type="submit">View Date Report</button>
+</form>
+
+{% if date_table %}
+<h2 style="color: #4B0082;">Absentees on {{ selected_date }}</h2>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Reg No</th>
+    </tr>
+    {% for row in date_table %}
+    <tr>
+        <td>{{ row.name }}</td>
+        <td>{{ row.regno }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+</body>
+</html>
+
+</center>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login.html"; 
+  });
+    const monthDropdown = document.getElementById('month-dropdown');
+    const monthTable = document.querySelector('#month-table tbody');
+    const monthTableWrapper = document.getElementById('month-table');
+    const datePicker = document.getElementById('date-picker');
+    const dateTable = document.querySelector('#date-table tbody');
+    const dateTableWrapper = document.getElementById('date-table');
+    const regno = "{{ regno if regno else '' }}";
+
+    monthDropdown.addEventListener('change', () => {
+      const month = monthDropdown.value;
+      if (!month) return;
+
+      fetch('/month_data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `month=${month}&regno=${regno}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        monthTableWrapper.style.display = 'table';
+        monthTable.innerHTML = '';
+        data.forEach(d => {
+          const row = `<tr>
+            
+            <td>${d.name}</td>
+            <td>${d.regno}</td>
+            <td>${d.total_working}</td>
+            <td>${d.absent}</td>
+          </tr>`;
+          monthTable.innerHTML += row;
+        });
+      });
+    });
+
+    datePicker.addEventListener('change', () => {
+      const date = datePicker.value;
+      if (!date) return;
+
+      fetch('/date_absent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `date=${date}`
+      })
+      .then(res => res.json())
+      .then(data => {
+        dateTableWrapper.style.display = 'table';
+        dateTable.innerHTML = '';
+        data.forEach(d => {
+          const row = `<tr>
+            <td>${d.name}</td>
+            <td>${d.regno}</td>
+          </tr>`;
+          dateTable.innerHTML += row;
+        });
+      });
+    });
+
+
+
+
+
+  </script>
+
+
+</body>
+</html>

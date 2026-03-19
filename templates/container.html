@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>our project</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+.container {
+   display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+ 
+}
+.card-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.container1 {
+ background: white;
+  border: 2px solid #8A2BE2;
+  border-radius: 10px;
+  padding: 2.3rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.container1 h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #4B0082;
+  
+}
+
+.container1 {
+  color: #333;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.container1:hover {
+   transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+  background-color: #f9f9ff;
+}
+.card-icon {
+  width: 15rem;
+  height: 10rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+a{
+  text-decoration: none;
+}
+
+
+
+  .logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+/* ✅ Mobile Responsive Fix */
+@media (max-width: 600px) {
+  /* Header section */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  .header-content h2 {
+    font-size: 16px;
+  }
+  /* Cards layout */
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  .container1 {
+    width: 60%;
+    padding: 1.5rem;
+  }
+
+  .card-icon {
+    width: 100%;
+    height: auto;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+
+
+
+
+
+
+
+
+}
+
+  </style>
+
+</head>
+<body>
+
+  
+<header class="site-header">
+  <div class="header-content">
+   
+    <h1>Fatima College</h1>
+    
+   <img src="static/logo.png" class="logo">
+    <h2>Department of Computer Science</h2>
+   <br>
+   <h3>Student Attendance System</h3>
+  </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+            <li><a href="{{url_for('container')}}">Home </a></li>
+
+      <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+      <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+      
+    </ul>
+  </nav>
+  <section class="container">
+
+  <!-- 1st Row - 3 cards -->
+  <div class="card-row">
+    <div class="container1" onclick="location.href='register';">
+      <img src="static/reg.jpg" class="card-icon" />
+      <h4>Registration</h4>
+      <p>Register new students to the biometric system.</p>
+    </div>
+
+    <div class="container1" onclick="location.href='attendance';">
+      <img src="static/attend.webp" class="card-icon" />
+      <h4>Mark Attendance</h4>
+      <p>Check student attendance records.</p>
+    </div>
+
+    <div class="container1" onclick="location.href='index';">
+      <img src="static/report_pic.webp" class="card-icon" />
+      <h4>View Report</h4>
+      <p>View attendance reports.</p>
+    </div>
+  </div>
+
+  <!-- 2nd Row - 2 cards -->
+  <div class="card-row">
+    <div class="container1" onclick="location.href='leave_report';">
+      <img src="static/leave-report.jpg" class="card-icon" />
+      <h4>Leave Reports</h4>
+      <p>View leave details submitted via Google Form.</p>
+    </div>
+
+    <div class="container1" onclick="location.href='linegraph';">
+      <img src="static/linegraph.jpeg" class="card-icon" />
+      <h4>Line Graph</h4>
+      <p>Graph representation of attendance.</p>
+    </div>
+  </div>
+
+</section>
+
+   <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login1 .html"; 
+  });
+  </script>
+  
+  </body>
+  </html>

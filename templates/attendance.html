@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f2f8ff;
+      color: #222;
+}
+
+
+    .site-header {
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      color: #fff;
+      padding: 1rem 2rem ;
+     
+    }
+.site-header {
+  
+  color: #fff;
+  padding: 1.5rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+
+header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      padding: 20px;
+      
+      text-align: center;
+      position: relative;
+    }
+   h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fefefe;
+    }
+    h2 {
+      margin: 5px 0 0;
+      font-size: 20px;
+      color: #ede9e9;
+    }
+    h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: #ede9e9;
+    }
+    .site-header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      color: #fff; padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+      text-align: center;
+    }
+    .header-text { margin-left: 15px; }
+    h1,h2,h3 { margin: 3px 0; }
+    .logo { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+
+    .main-content { padding: 2rem; max-width: 900px; margin: 20px auto;
+      background-color: #fff; border-radius: 8px; }
+
+    .form-title { text-align: center; margin-bottom: 1.5rem; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    table th, table td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    table th { background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2); color: #fff; }
+
+    button[type="submit"] {
+      padding: 0.75rem; font-size: 1rem;
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px;
+    }
+
+    .alert {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      transition: opacity 1s ease;
+    }
+    .alert.success { background-color: #d4edda; color: #155724; }
+    .alert.error { background-color: #f8d7da; color: #721c24; }
+
+    /* Flash popup at center */
+    .flash-center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 30px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+      text-align: center;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+      animation: popup 0.5s ease;
+    }
+    .flash-center.success { background-color: #28a745; }
+    .flash-center.error { background-color: #dc3545; }
+    .menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 40px; 
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+    .menu-toggle.hidden {
+      display: none;
+    }
+
+    
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+     background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding-top: 20px;
+      color: white;
+    }
+
+    .side-nav.open {
+      left: 0;
+    }
+
+    .close-menu {
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid #555555;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+    }
+
+    .nav-links a:hover {
+      background-color: #4B0082;
+    }
+    .logout-icon {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  width: 8rem;
+  height: 6rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+    .logo{
+  position: absolute;
+  top: 20px;
+  left: 500px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  
+}
+
+
+    @keyframes popup {
+      from { transform: translate(-50%, -60%) scale(0.8); opacity: 0; }
+      to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    /* ✅ Mobile Responsive Fix */
+@media (max-width: 600px) {
+  /* Header section */
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    position: static;
+    margin: 10px auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-content h1 {
+    font-size: 22px;
+  }
+
+  .header-content h2 {
+    font-size: 16px;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+ 
+    <h1>Fatima College</h1><img src="static\logo.png" class="logo"> 
+    
+    <h2>Department of Computer Science</h2>
+ <br>
+    <h3>Student  Attendance System</h3>
+  </div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+  
+  <nav class="side-nav" id="side-nav">
+    <div class="close-menu" id="close-menu">✖</div>
+    <ul class="nav-links">
+         <li><a href="{{url_for('container')}}">Home </a></li>
+      <li><a href="{{url_for('register')}}">Registration </a></li>
+      <li><a href="{{url_for('attendance')}}">Mark  Attendance</a></li>
+      <li><a href="{{url_for('index')}}">View Report</a></li>
+         <li><a href="{{url_for('leave_report')}}">Leave Report</a></li>
+      <li><a href="{{url_for('linegraph')}}">Line Graph</a></li>
+      <li><a href="{{url_for('login1')}}">Logout</a></li>
+
+      
+    </ul>
+  </nav>
+
+<main class="main-content">
+  <h2 class="form-title" style="color: #4B0082;">Mark Attendance</h2>
+
+  <!-- Teacher warning: only show if first time (not after submit or error) -->
+  {% if not submitted and not message %}
+    <div class="alert error" id="warning-alert">
+      ⚠ Once submitted, attendance cannot be edited. Please mark carefully!
+    </div>
+  {% endif %}
+
+  <!-- Message alerts (holiday, Sunday, already marked, success) -->
+  {% if message %}
+    <div id="flash-alert" class="flash-center {% if '✅' in message %}success{% else %}error{% endif %}">
+      {{ message }}
+    </div>
+  {% endif %}
+ 
+  <form action="/attendance" method="POST">
+   <label for="teacher_name">Select Teacher:</label>
+       <select name="teacher_name" id="teacher_name" required>
+       {% for teacher in teachers %}
+       <option value="{{ teacher }}">{{ teacher }}</option>
+       {% endfor %}
+       </select>
+      <br><br>
+
+  
+    <label for="date">Select Date:</label>
+    <input type="date" id="date" name="attendance_date" value="{{ today }}" required>
+
+    <table>
+      <tr>
+        <th rowspan="2">Reg No</th>
+        <th rowspan="2">Name</th>
+        <th colspan="3">Status</th>
+      </tr>
+      <tr>
+        <th>Present</th>
+        <th>Absent</th>
+        <th>Late (with time)</th>
+      </tr>
+      {% for student in students %}
+      <tr>
+        <td>{{ student.regno1 }}</td>
+        <td>{{ student.name1 }}</td>
+  
+        <!-- Present -->
+        <td>
+          <input type="radio" 
+           name="status_{{ student.regno1 }}" 
+           value="Present" 
+           checked 
+           onclick="toggleLateTime('{{ student.regno1 }}')">
+        </td>
+  
+        <!-- Absent -->
+        <td>
+         <input type="radio" 
+           name="status_{{ student.regno1 }}" 
+           value="Absent" 
+           onclick="toggleLateTime('{{ student.regno1 }}')">
+        </td>
+  
+        <!-- Late + time input -->
+        <td>
+         <input type="radio" 
+           name="status_{{ student.regno1 }}" 
+           value="Late" 
+           onclick="toggleLateTime('{{ student.regno1 }}')">
+         <div id="time_{{ student.regno1 }}" class="late-time" style="display:none; margin-left:5px;">
+           <input type="time" name="late_time_{{ student.regno1 }}">
+         </div>
+       </td>
+  
+       <input type="hidden" name="name_{{ student.regno1 }}" value="{{ student.name1 }}">
+     </tr>
+      {% endfor %}
+    </table>
+
+    <button type="submit">Submit Attendance</button>
+  </form>
+</main>
+
+<script>
+  function toggleLateTime(regno) {
+    const radios = document.getElementsByName("status_" + regno);
+    const timeDiv = document.getElementById("time_" + regno);
+
+    let isLate = false;
+    radios.forEach(r => {
+     if (r.checked && r.value === "Late") {
+       isLate = true;
+     }
+    });
+
+    if (isLate) {
+      timeDiv.style.display = "inline-block";
+    } else {
+      timeDiv.style.display = "none";
+      timeDiv.querySelector("input").value = ""; // clear time if not Late
+    }
+  }
+
+  // Auto-hide flash after 4 seconds
+  setTimeout(() => {
+    let alertBox = document.getElementById("flash-alert");
+    if (alertBox) {
+      alertBox.style.opacity = "0";
+      setTimeout(() => alertBox.remove(), 500);
+    }
+  }, 4000);
+
+  // Auto-hide teacher warning after 7 seconds
+  setTimeout(() => {
+    const warn = document.getElementById("warning-alert");
+    if (warn) {
+      warn.style.opacity = "0";
+      setTimeout(() => warn.style.display = "none", 600);
+    }
+  }, 7000);
+  
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const closeMenu = document.getElementById('close-menu');
+    const logoutIcon = document.getElementById('logout-icon');
+
+    menuToggle.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      menuToggle.classList.add('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      menuToggle.classList.remove('hidden'); 
+
+    });
+     logoutIcon.addEventListener('click', () => {
+   
+    alert("You have been logged out.");
+    window.location.href = "login1 .html"; 
+  });
+  
+</script>
+
+</body>
+</html>

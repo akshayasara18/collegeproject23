@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Attendance Control</title>
+</head>
+<body>
+  <h2>Attendance Tools</h2>
+
+  <!-- Call this after you've saved attendance -->
+  <form method="post" action="/send_form_emails"
+        onsubmit="return confirm('Send the Google Form link to all students now?');">
+    <button type="submit">Send Google Form Link to Students</button>
+  </form>
+
+  <p><a href="/form_responses" target="_blank">View Form Responses (Table)</a></p>
+</body>
+</html>

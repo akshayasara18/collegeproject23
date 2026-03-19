@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Students Leave Record</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .site-header {
+      background: linear-gradient(-45deg, #4B0082, #6a0dad, #8A2BE2, #c77dff);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .header-text {
+      margin-left: 15px;
+    }
+
+    h1, h2, h3 {
+      margin: 3px 0;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .main-content {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .graph-area {
+      flex: 2;
+      text-align: center;
+    }
+
+    .details {
+      flex: 1;
+      border-left: 2px solid #ccc;
+      padding-left: 1rem;
+    }
+
+    .student-card {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .student-card h4 {
+      margin: 0;
+      color: #4B0082;
+    }
+
+    .student-card p {
+      margin: 2px 0;
+    }
+
+    .footer-text {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <img src="{{ url_for('static', filename='logo.png') }}" class="logo" alt="College Logo">
+  <div class="header-text">
+    <h1>Fatima College</h1>
+    <h2>Department of Computer Science</h2>
+    <h3>Attendance System</h3>
+  </div>
+</header>
+
+<main class="main-content">
+  <!-- Left Side: Matplotlib Chart -->
+  <div class="graph-area">
+    <h2>Students Leave Record</h2>
+    
+    <!-- Matplotlib Image -->
+    <img src="data:image/png;base64,{{ graph_url }}" alt="Leave Chart"
+         style="width:100%; max-width:600px; border: 1px solid #ccc; border-radius: 8px;" />
+`````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````div>
+
+  <!-- Right Side: Leave List -->
+  <div class="details">
+    <h3>Absentee Details</h3>
+    {% for name, regno, days in data %}
+    <div class="student-card">`
+      <h4>{{ name }}</h4>
+      <p><b>Register No:</b> {{ regno }}</p>
+      <p><b>Absent Days:</b> {{ days }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+</body>
+</html>
